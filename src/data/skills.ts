@@ -1,3 +1,5 @@
+import lo from "lodash";
+
 enum SkillLevel {
   BEGINNER = 1,
   INTERMEDIATE = 2,
@@ -18,7 +20,7 @@ export interface Skills {
   softSkills: string[];
 }
 
-export const skills: Skills = {
+const skills: Skills = {
   languages: [
     { name: "PHP", level: SkillLevel.PROFESSIONAL },
     { name: "JavaScript", level: SkillLevel.PROFESSIONAL },
@@ -42,10 +44,71 @@ export const skills: Skills = {
   ],
   softSkills: [
     "Comunicação",
-    "Liderança",
+    "Empatia",
     "Resolução de problemas",
-    "Gestão de projetos",
-    "Trabalho autônomo",
-    "Trabalho colaborativo",
+    "Gestão de tempo",
+    "Adaptabilidade",
+    "Pensamento crítico",
+    "Proatividade",
+    "Trabalho em equipe",
   ],
+};
+
+export const getSkills = (): Skills => {
+  return lo.cloneDeep(skills);
+};
+
+export const getSkillsOrdered = (): Skills => {
+  const orderedSkills = lo.cloneDeep(skills);
+  orderedSkills.languages = lo.orderBy(
+    orderedSkills.languages,
+    ["level", "name"],
+    ["desc", "asc"]
+  );
+  orderedSkills.databases = lo.orderBy(
+    orderedSkills.databases,
+    ["level", "name"],
+    ["desc", "asc"]
+  );
+  orderedSkills.frameworks = lo.orderBy(
+    orderedSkills.frameworks,
+    ["level", "name"],
+    ["desc", "asc"]
+  );
+  orderedSkills.softSkills = lo.orderBy(orderedSkills.softSkills);
+  return orderedSkills;
+};
+
+export const getSkillLevelName = (level: SkillLevel): string => {
+  switch (level) {
+    case SkillLevel.BEGINNER:
+      return "Iniciante";
+    case SkillLevel.INTERMEDIATE:
+      return "Intermediário";
+    case SkillLevel.ADVANCED:
+      return "Avançado";
+    case SkillLevel.PROFESSIONAL:
+      return "Profissional";
+    case SkillLevel.EXPERT:
+      return "Especialista";
+    default:
+      return "Desconhecido";
+  }
+};
+
+export const getSkillLevelColor = (level: SkillLevel): string => {
+  switch (level) {
+    case SkillLevel.BEGINNER:
+      return "red";
+    case SkillLevel.INTERMEDIATE:
+      return "orange";
+    case SkillLevel.ADVANCED:
+      return "yellow";
+    case SkillLevel.PROFESSIONAL:
+      return "green";
+    case SkillLevel.EXPERT:
+      return "blue";
+    default:
+      return "gray";
+  }
 };

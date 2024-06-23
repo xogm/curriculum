@@ -106,7 +106,7 @@ const ContactForm = () => {
         <div className="form-control mt-6">
           <button
             type="submit"
-            className="btn btn-primary"
+            className="btn btn-secondary"
             disabled={formData.disabled}
           >
             <FontAwesomeIcon icon={faEnvelope} size={"lg"} />

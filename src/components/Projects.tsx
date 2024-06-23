@@ -28,10 +28,10 @@ const Projects = () => {
             </Link>
           </div>
         </div>
-        <div className="p-4 bg-base-200">
+        <div className="p-2 bg-base-200">
           {filteredProjects.map((project, index) => (
             <div key={index} id={`project${index}`} className="m-5">
-              <div className="card shadow-xl">
+              <div className="card shadow-lg bg-base-100 text-base-content card-bordered max-md:card-compact">
                 <div className="card-body">
                   <div className="flex justify-between">
                     <h2 className="card-title">{project.title}</h2>

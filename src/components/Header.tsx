@@ -38,9 +38,9 @@ const Header = () => {
                 </div>
             </div>
             <h1 className="text-5xl font-bold">
-              {firstName} <span className="italic text-primary">{lastName}</span>
+              {firstName} <span className="italic text-secondary">{lastName}</span>
             </h1>
-            <h2 className="mb-4 text-2xl text-primary">{title}</h2>
+            <h2 className="mb-4 text-2xl text-secondary">{title}</h2>
             <p className="text-sm sm:mb-2 italic text-neutral-content">
               {city}, {state} - {country}{" "}
               <FontAwesomeIcon icon={faLocationDot} size="sm" />

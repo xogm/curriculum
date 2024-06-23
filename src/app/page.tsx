@@ -27,7 +27,6 @@ const Page = () => {
 
   return (
     <>
-      <ThemeSelector />
       <Header />
       <main className="container px-4 mx-auto">
         <Experience />
@@ -37,7 +36,6 @@ const Page = () => {
         <Projects />
         <Testimonials />
       </main>
-      <Footer />
     </>
   );
 };

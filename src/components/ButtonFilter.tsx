@@ -21,7 +21,7 @@ function Button({
     <button
       className={`btn btn-xs ${
         isActive && "btn-active"
-      } btn-outline btn-primary`}
+      } btn-outline btn-secondary`}
       onClick={() => onClick(filter)}
     >
       {filter === "All" ? "Todos" : filter}

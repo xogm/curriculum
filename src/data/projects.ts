@@ -46,6 +46,6 @@ export const projects: Project[] = [
       "- **Experiência Profissional:** Histórico de empregos e projetos.\n" +
       "- **Formação Acadêmica:** Cursos, certificações e outras qualificações.",
     technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "DaisyUI", "Font Awesome", "date-fns"],
-    link: "#",
+    link: "https://github.com/rxpt/curriculum",
   }
 ];

@@ -1,6 +1,9 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faCode } from "@fortawesome/free-solid-svg-icons";
+import {
+  faLinkedin,
+  faGithub,
+  faWhatsapp,
+} from "@fortawesome/free-brands-svg-icons";
 
 interface Social {
   name: string;
@@ -12,6 +15,12 @@ export interface ContactInfo {
   email: string;
   social: Social[];
 }
+
+const whatsappNumber = "5585999292118";
+const whatsappMessage = "Olá, Ronis! Vi seu site e gostaria de falar com você.";
+const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+  whatsappMessage
+)}`;
 
 export const contactInfo: ContactInfo = {
   email: "ronis@rx.dev.br",
@@ -27,9 +36,9 @@ export const contactInfo: ContactInfo = {
       icon: faGithub,
     },
     {
-      name: "Website",
-      url: "https://rx.dev.br",
-      icon: faCode,
+      name: "WhatsApp",
+      url: whatsappLink,
+      icon: faWhatsapp,
     },
   ],
 };

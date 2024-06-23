@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="footer items-center p-4 bg-neutral text-neutral-content">
       <div className="items-center grid-flow-col">
-        <FontAwesomeIcon icon={faCode} size="2x" />
+        <FontAwesomeIcon icon={faCode} size="2x" className="text-secondary" />
         <p>Vamos criar algo incrível juntos! Entre em contato.</p>
       </div>
       <nav>

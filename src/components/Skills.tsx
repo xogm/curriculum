@@ -1,7 +1,9 @@
 import { memo } from "react";
 import Section from "./Section";
 import Rating from "./Rating";
-import { skills, Skills as ISkills } from "@/data/skills";
+import { getSkillsOrdered, Skills as ISkills } from "@/data/skills";
+
+const skills = getSkillsOrdered();
 
 type SkillListProps = {
   title: string;
@@ -14,8 +16,8 @@ const SkillList = ({ title, skills }: SkillListProps) => (
     <ul className="list-disc list-inside">
       {skills.map((skill, index) => (
         <li key={index} className="flex items-center gap-2">
-          {typeof skill === "string" ? skill : skill.name}
           {typeof skill === "object" && <Rating rating={skill.level} />}
+          {typeof skill === "string" ? skill : skill.name}
         </li>
       ))}
     </ul>
