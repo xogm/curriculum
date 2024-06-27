@@ -6,10 +6,17 @@ import Footer from "@/components/Footer";
 import ThemeSelector from "@/components/ThemeSelector";
 
 const inter = Inter({ subsets: ["latin"] });
+const title = `${personalInfo.firstName} ${personalInfo.lastName} - ${personalInfo.title} em ${personalInfo.location.city} - ${personalInfo.location.country}`;
 
 export const metadata: Metadata = {
-  title: `${personalInfo.firstName} ${personalInfo.lastName} - ${personalInfo.title} em ${personalInfo.location.city} - ${personalInfo.location.country}`,
+  title,
   description: personalInfo.bio,
+  openGraph: {
+    title,
+    description: personalInfo.bio,
+    url: "https://ronis.com.br",
+    type: "profile",
+  },
 };
 
 export default function RootLayout({
