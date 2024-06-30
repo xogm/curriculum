@@ -18,6 +18,8 @@ export async function GET() {
           backgroundSize: "cover",
           color: "white",
           textShadow: "1px 1px 1px black",
+          width: "100%",
+          height: "100%",
         }}
       >
         <Image
@@ -28,16 +30,33 @@ export async function GET() {
             height: "200px",
             borderRadius: "50%",
             border: "5px solid white",
+            boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
+            backgroundColor: "white",
           }}
         />
-        <h1>
+        <h1
+          style={{
+            fontSize: "2.5rem",
+            margin: "0.5rem 0",
+          }}
+        >
           {personalInfo.firstName} {personalInfo.lastName}
         </h1>
-        <h2>
+        <h2
+          style={{
+            fontSize: "1.5rem",
+            margin: "0.5rem 0",
+          }}
+        >
           {personalInfo.title} em {personalInfo.location.city} -{" "}
           {personalInfo.location.country}
         </h2>
-        <p>{personalInfo.summary}</p>
+        <p
+          style={{
+            fontSize: "1rem",
+            margin: "0.5rem 0",
+          }}
+        >{personalInfo.summary}</p>
       </div>
     ),
     { width: 1200, height: 600 }
