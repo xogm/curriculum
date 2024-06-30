@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     description: personalInfo.bio,
     url: "https://ronis.com.br",
     type: "profile",
+    images: [
+      "https://ronis.com.br/about-me"
+    ]
   },
 };
 

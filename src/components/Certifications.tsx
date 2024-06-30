@@ -7,7 +7,7 @@ import { certifications } from "@/data/certifications";
 
 const Certifications = () => {
   return (
-    <Section title="Cursos e Certificações">
+    <Section title="Certificações">
       <Timeline
         timeline={certifications.map((cert) => {
           return {
