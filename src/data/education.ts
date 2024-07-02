@@ -21,14 +21,6 @@ export const education: Education[] = [
     observations: "Cursando 2º período (previsto para término em 2026)",
   },
   {
-    institution: "Escola da Nuvem",
-    degree: "Computação em Nuvem: AWS Practitioner",
-    period: {
-      start: parseDate({ year: 2024, month: 5 }),
-      end: parseDate({ year: 2024, month: 8 }),
-    },
-  },
-  {
     institution: "Autodidata",
     degree: "Desenvolvimento Web",
     period: {
