@@ -54,7 +54,7 @@ const ContactForm = () => {
         <div className="mb-4 form-control">
           <label
             htmlFor="name"
-            className="block text-sm font-medium text-gray-700"
+            className="label"
           >
             Nome
           </label>
@@ -62,18 +62,18 @@ const ContactForm = () => {
             type="text"
             id="name"
             {...register("name")}
-            className={`mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm ${
+            className={`input input-bordered ${
               errors.name ? "border-red-500" : ""
             }`}
           />
           {errors.name && (
-            <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
+            <p className="mb-1 text-sm text-red-600">{errors.name.message}</p>
           )}
         </div>
         <div className="mb-4 form-control">
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-gray-700"
+            className="label"
           >
             Email
           </label>
@@ -81,18 +81,18 @@ const ContactForm = () => {
             type="email"
             id="email"
             {...register("email")}
-            className={`mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm ${
+            className={`input input-bordered ${
               errors.email ? "border-red-500" : ""
             }`}
           />
           {errors.email && (
-            <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+            <p className="mb-1 text-sm text-red-600">{errors.email.message}</p>
           )}
         </div>
         <div className="mb-4 form-control">
           <label
             htmlFor="subject"
-            className="block text-sm font-medium text-gray-700"
+            className="label"
           >
             Assunto
           </label>
@@ -100,12 +100,12 @@ const ContactForm = () => {
             type="text"
             id="subject"
             {...register("subject")}
-            className={`mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm ${
+            className={`input input-bordered ${
               errors.subject ? "border-red-500" : ""
             }`}
           />
           {errors.subject && (
-            <p className="mt-1 text-sm text-red-600">
+            <p className="mb-1 text-sm text-red-600">
               {errors.subject.message}
             </p>
           )}
@@ -113,26 +113,26 @@ const ContactForm = () => {
         <div className="mb-4 form-control">
           <label
             htmlFor="message"
-            className="block text-sm font-medium text-gray-700"
+            className="label"
           >
             Mensagem
           </label>
           <textarea
             id="message"
             {...register("message")}
-            className={`mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm ${
+            className={`textarea textarea-bordered ${
               errors.message ? "border-red-500" : ""
             }`}
           />
           {errors.message && (
-            <p className="mt-1 text-sm text-red-600">
+            <p className="mb-1 text-sm text-red-600">
               {errors.message.message}
             </p>
           )}
         </div>
         {formResult && (
           <p
-            className={`mt-2 text-sm ${
+            className={`mb-2 text-sm ${
               formResult.success ? "text-green-600" : "text-red-600"
             }`}
           >
