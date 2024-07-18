@@ -1,118 +1,151 @@
 "use client";
-import { useState, ChangeEvent, FormEvent, memo } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { ContactFormData } from "@/app/contact/types";
+import { useState, memo } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
-interface InputFieldProps {
-  label: string;
-  type: string;
-  name: keyof FormData;
-  placeholder?: string;
-  value: string;
-  onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-}
-
-interface FormData {
-  name: string;
-  email: string;
-  message: string;
-  disabled: boolean;
-}
-
-const InputField = ({
-  label,
-  type,
-  name,
-  placeholder,
-  value,
-  onChange,
-}: InputFieldProps) => (
-  <div className="form-control">
-    <label className="label">
-      <span className="label-text">{label}</span>
-    </label>
-    {type === "textarea" ? (
-      <textarea
-        name={name}
-        value={value}
-        onChange={onChange}
-        className="textarea textarea-bordered"
-        placeholder={placeholder}
-      />
-    ) : (
-      <input
-        type={type}
-        name={name}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-        className="input input-bordered"
-      />
-    )}
-  </div>
-);
+const contactSchema = z.object({
+  name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
+  email: z.string().email("Email inválido"),
+  subject: z.string().min(5, "Assunto deve ter pelo menos 5 caracteres"),
+  message: z.string().min(10, "Mensagem deve ter pelo menos 10 caracteres"),
+});
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    message: "",
-    disabled: false,
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
   });
+  const [formResult, setFormResult] = useState<{
+    success: boolean;
+    message: string;
+  } | null>(null);
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      const response = await fetch("/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    window.open(
-      `mailto:ronis@rx.dev.br?subject=${formData.name} - ${formData.email}&body=${formData.message}`
-    );
-    setFormData((data) => ({ ...data, disabled: true }));
+      if (response.ok) {
+        setFormResult({ success: true, message: "Email enviado com sucesso!" });
+      } else {
+        const errorData = await response.json();
+        setFormResult({ success: false, message: errorData.error });
+      }
+    } catch (error) {
+      setFormResult({ success: false, message: "Erro ao enviar email." });
+    }
   };
 
   return (
     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <form onSubmit={handleSubmit} className="card-body">
-        <h2 className="card-title">Contato</h2>
-        <InputField
-          label="Nome"
-          type="text"
-          name="name"
-          placeholder="Seu nome"
-          value={formData.name}
-          onChange={handleChange}
-        />
-        <InputField
-          label="E-mail"
-          type="email"
-          name="email"
-          placeholder="seu@email.com"
-          value={formData.email}
-          onChange={handleChange}
-        />
-        <InputField
-          label="Mensagem"
-          type="textarea"
-          name="message"
-          placeholder="Digite sua mensagem aqui..."
-          value={formData.message}
-          onChange={handleChange}
-        />
-        <div className="form-control mt-6">
-          <button
-            type="submit"
-            className="btn btn-secondary"
-            disabled={formData.disabled}
+      <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+        <div>
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium text-gray-700"
           >
-            <FontAwesomeIcon icon={faEnvelope} size={"lg"} />
-            <span>Enviar</span>
-          </button>
+            Nome
+          </label>
+          <input
+            type="text"
+            id="name"
+            {...register("name")}
+            className={`mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm ${
+              errors.name ? "border-red-500" : ""
+            }`}
+          />
+          {errors.name && (
+            <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
+          )}
         </div>
+        <div className="mt-4">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            {...register("email")}
+            className={`mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm ${
+              errors.email ? "border-red-500" : ""
+            }`}
+          />
+          {errors.email && (
+            <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+          )}
+        </div>
+        <div className="mt-4">
+          <label
+            htmlFor="subject"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Assunto
+          </label>
+          <input
+            type="text"
+            id="subject"
+            {...register("subject")}
+            className={`mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm ${
+              errors.subject ? "border-red-500" : ""
+            }`}
+          />
+          {errors.subject && (
+            <p className="mt-1 text-sm text-red-600">
+              {errors.subject.message}
+            </p>
+          )}
+        </div>
+        <div className="mt-4">
+          <label
+            htmlFor="message"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Mensagem
+          </label>
+          <textarea
+            id="message"
+            {...register("message")}
+            className={`mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm ${
+              errors.message ? "border-red-500" : ""
+            }`}
+          />
+          {errors.message && (
+            <p className="mt-1 text-sm text-red-600">
+              {errors.message.message}
+            </p>
+          )}
+        </div>
+        {formResult && (
+          <p
+            className={`mt-2 text-sm ${
+              formResult.success ? "text-green-600" : "text-red-600"
+            }`}
+          >
+            {formResult.message}
+          </p>
+        )}
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50"
+        >
+          {isSubmitting ? "Enviando..." : "Enviar"}{" "}
+          <FontAwesomeIcon icon={faEnvelope} className="ml-2" />
+        </button>
       </form>
     </div>
   );

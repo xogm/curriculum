@@ -16,7 +16,7 @@ export const projects: Project[] = [
       "- **Favoritos:** Marque seus hinos preferidos para acesso rápido.\n" +
       "- **Personalização:** Ajuste o tamanho da fonte e o tema do aplicativo.",
     technologies: ["React Native", "JavaScript", "TypeScript", "MMKV"],
-    link: "https://github.com/rxpt/harpa-crista-app",
+    link: "https://github.com/x1db/harpa-crista-app",
   },
   {
     title: "Random Numbers with Exclusions",
@@ -26,7 +26,7 @@ export const projects: Project[] = [
       "- **Exclusões:** Exclua números ou intervalos específicos do resultado.\n" +
       "- **Opções Flexíveis:** Personalize o comportamento da função com um objeto de opções.",
     technologies: ["JavaScript"],
-    link: "https://github.com/rxpt/random-numbers",
+    link: "https://github.com/x1db/random-numbers",
   },
   {
     title: "str-async-replace",
@@ -36,7 +36,7 @@ export const projects: Project[] = [
       "- **Métodos Flexíveis:** Utilize diferentes métodos para personalizar o comportamento da substituição.\n" +
       "- **Ideal para Operações Assíncronas:** Perfeito para lidar com dados de APIs ou outras fontes assíncronas.",
     technologies: ["JavaScript", "TypeScript"],
-    link: "https://github.com/rxpt/str-async-replace",
+    link: "https://github.com/x1db/str-async-replace",
   },
   {
     title: "Curriculum Vitae with Next.js",
@@ -46,6 +46,6 @@ export const projects: Project[] = [
       "- **Experiência Profissional:** Histórico de empregos e projetos.\n" +
       "- **Formação Acadêmica:** Cursos, certificações e outras qualificações.",
     technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "DaisyUI", "Font Awesome", "date-fns"],
-    link: "https://github.com/rxpt/curriculum",
+    link: "https://github.com/x1db/curriculum",
   }
 ];

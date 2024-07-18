@@ -14,10 +14,10 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description: personalInfo.bio,
-    url: "https://ronis.com.br",
+    url: "https://x1.dev.br",
     type: "profile",
     images: [
-      "https://ronis.com.br/about-me"
+      "https://x1.dev.br/about-me.jpg",
     ]
   },
 };
