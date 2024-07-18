@@ -50,7 +50,8 @@ const ContactForm = () => {
   return (
     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-        <div>
+        <h2 className="card-title">Entre em contato</h2>
+        <div className="mb-4 form-control">
           <label
             htmlFor="name"
             className="block text-sm font-medium text-gray-700"
@@ -69,7 +70,7 @@ const ContactForm = () => {
             <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
           )}
         </div>
-        <div className="mt-4">
+        <div className="mb-4 form-control">
           <label
             htmlFor="email"
             className="block text-sm font-medium text-gray-700"
@@ -88,7 +89,7 @@ const ContactForm = () => {
             <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
           )}
         </div>
-        <div className="mt-4">
+        <div className="mb-4 form-control">
           <label
             htmlFor="subject"
             className="block text-sm font-medium text-gray-700"
@@ -109,7 +110,7 @@ const ContactForm = () => {
             </p>
           )}
         </div>
-        <div className="mt-4">
+        <div className="mb-4 form-control">
           <label
             htmlFor="message"
             className="block text-sm font-medium text-gray-700"
@@ -141,7 +142,7 @@ const ContactForm = () => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50"
+          className="btn btn-secondary"
         >
           {isSubmitting ? "Enviando..." : "Enviar"}{" "}
           <FontAwesomeIcon icon={faEnvelope} className="ml-2" />
