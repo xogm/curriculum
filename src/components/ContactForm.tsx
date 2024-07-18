@@ -51,7 +51,7 @@ const ContactForm = () => {
     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       <form onSubmit={handleSubmit(onSubmit)} className="card-body">
         <h2 className="card-title">Entre em contato</h2>
-        <div className="mb-4 form-control">
+        <div className="form-control">
           <label
             htmlFor="name"
             className="label"
@@ -67,10 +67,10 @@ const ContactForm = () => {
             }`}
           />
           {errors.name && (
-            <p className="mb-1 text-sm text-red-600">{errors.name.message}</p>
+            <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
           )}
         </div>
-        <div className="mb-4 form-control">
+        <div className="form-control">
           <label
             htmlFor="email"
             className="label"
@@ -86,10 +86,10 @@ const ContactForm = () => {
             }`}
           />
           {errors.email && (
-            <p className="mb-1 text-sm text-red-600">{errors.email.message}</p>
+            <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
           )}
         </div>
-        <div className="mb-4 form-control">
+        <div className="form-control">
           <label
             htmlFor="subject"
             className="label"
@@ -105,12 +105,12 @@ const ContactForm = () => {
             }`}
           />
           {errors.subject && (
-            <p className="mb-1 text-sm text-red-600">
+            <p className="mt-1 text-sm text-red-600">
               {errors.subject.message}
             </p>
           )}
         </div>
-        <div className="mb-4 form-control">
+        <div className="form-control">
           <label
             htmlFor="message"
             className="label"
@@ -125,7 +125,7 @@ const ContactForm = () => {
             }`}
           />
           {errors.message && (
-            <p className="mb-1 text-sm text-red-600">
+            <p className="mt-1 text-sm text-red-600">
               {errors.message.message}
             </p>
           )}
