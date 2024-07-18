@@ -23,16 +23,16 @@ const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
 )}`;
 
 export const contactInfo: ContactInfo = {
-  email: "ronis@rx.dev.br",
+  email: "ronis@x1.dev.br",
   social: [
     {
       name: "LinkedIn",
-      url: "https://www.linkedin.com/in/rxpt/",
+      url: "https://www.linkedin.com/in/valdirronis/",
       icon: faLinkedin,
     },
     {
       name: "GitHub",
-      url: "https://github.com/rxpt",
+      url: "https://github.com/x1db",
       icon: faGithub,
     },
     {
