@@ -2,7 +2,7 @@ import { memo } from "react";
 
 type SectionProps = {
   title: string;
-  color?: "primary" | "secondary" | "accent" | "neutral"; // Restringir as cores permitidas
+  color?: "primary" | "primary" | "accent" | "neutral"; // Restringir as cores permitidas
   children: React.ReactNode;
 };
 

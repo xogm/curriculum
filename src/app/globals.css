@@ -10,11 +10,8 @@ select:focus ~ label,
 select:not([value=""]):valid ~ label {
   @apply transform;
   @apply scale-75;
-  @apply -translate-y-6;
-}
-
-input:focus ~ label,
-select:focus ~ label {
-  @apply text-black;
-  @apply left-0;
+  @apply -translate-y-7;
+  @apply -translate-x-2;
+  @apply text-sm;
+  @apply font-semibold;
 }

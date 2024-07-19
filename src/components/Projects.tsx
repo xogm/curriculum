@@ -48,7 +48,7 @@ const Projects = () => {
                   <div className="card-actions">
                     {project.technologies.map((tech, index) => (
                       <div
-                        className="badge badge-outline badge-secondary"
+                        className="badge badge-outline badge-primary"
                         key={index}
                       >
                         {tech}

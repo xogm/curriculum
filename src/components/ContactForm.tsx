@@ -1,11 +1,12 @@
 "use client";
-import { useForm } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { ContactFormData } from "@/app/contact/types";
 import { useState, memo } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faMagic } from "@fortawesome/free-solid-svg-icons";
+import FloatLabelField from "./FloatLabelField";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
@@ -15,13 +16,20 @@ const contactSchema = z.object({
 });
 
 const ContactForm = () => {
+  const methods = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
+  });
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
-  });
+    formState: { isSubmitting, isSubmitSuccessful },
+  } = methods;
   const [formResult, setFormResult] = useState<{
     success: boolean;
     message: string;
@@ -48,107 +56,51 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-        <h2 className="card-title">Entre em contato</h2>
-        <div className="form-control">
-          <label
-            htmlFor="name"
-            className="label"
-          >
-            Nome
-          </label>
-          <input
-            type="text"
-            id="name"
-            {...register("name")}
-            className={`input input-bordered ${
-              errors.name ? "border-red-500" : ""
-            }`}
-          />
-          {errors.name && (
-            <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
-          )}
-        </div>
-        <div className="form-control">
-          <label
-            htmlFor="email"
-            className="label"
-          >
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            {...register("email")}
-            className={`input input-bordered ${
-              errors.email ? "border-red-500" : ""
-            }`}
-          />
-          {errors.email && (
-            <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
-          )}
-        </div>
-        <div className="form-control">
-          <label
-            htmlFor="subject"
-            className="label"
-          >
-            Assunto
-          </label>
-          <input
-            type="text"
-            id="subject"
-            {...register("subject")}
-            className={`input input-bordered ${
-              errors.subject ? "border-red-500" : ""
-            }`}
-          />
-          {errors.subject && (
-            <p className="mt-1 text-sm text-red-600">
-              {errors.subject.message}
-            </p>
-          )}
-        </div>
-        <div className="form-control">
-          <label
-            htmlFor="message"
-            className="label"
-          >
-            Mensagem
-          </label>
-          <textarea
-            id="message"
-            {...register("message")}
-            className={`textarea textarea-bordered ${
-              errors.message ? "border-red-500" : ""
-            }`}
-          />
-          {errors.message && (
-            <p className="mt-1 text-sm text-red-600">
-              {errors.message.message}
-            </p>
-          )}
-        </div>
+    <FormProvider {...methods}>
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+        <FloatLabelField
+          label="Nome"
+          type="text"
+          {...register("name")}
+          id="name"
+        />
+        <FloatLabelField
+          label="Email"
+          type="email"
+          {...register("email")}
+          id="email"
+        />
+        <FloatLabelField
+          label="Assunto"
+          type="text"
+          {...register("subject")}
+          id="subject"
+        />
+        <FloatLabelField
+          label="Mensagem"
+          as="textarea"
+          {...register("message")}
+          id="message"
+        />
         {formResult && (
-          <p
-            className={`mb-2 text-sm ${
-              formResult.success ? "text-green-600" : "text-red-600"
+          <div
+            className={`alert ${
+              formResult.success ? "alert-success" : "alert-error"
             }`}
           >
             {formResult.message}
-          </p>
+          </div>
         )}
         <button
           type="submit"
-          disabled={isSubmitting}
-          className="btn btn-secondary"
+          className="btn btn-primary btn-lg w-full mt-4"
+          disabled={isSubmitting || isSubmitSuccessful}
         >
-          {isSubmitting ? "Enviando..." : "Enviar"}{" "}
-          <FontAwesomeIcon icon={faEnvelope} className="ml-2" />
+          <FontAwesomeIcon icon={isSubmitting ? faMagic : faEnvelope} />
+          <span>{isSubmitting ? "Enviando..." : "Enviar"}</span>
         </button>
       </form>
-    </div>
+    </FormProvider>
   );
 };
 

@@ -27,10 +27,10 @@ const Page = () => {
     <>
       <Header />
       <main className="container px-4 mx-auto">
+        <Skills />
         <Experience />
         <Education />
         <Certifications />
-        <Skills />
         <Projects />
         <Testimonials />
       </main>

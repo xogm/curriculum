@@ -18,7 +18,7 @@ const Certifications = () => {
                 href={cert.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-sm btn-outline btn-secondary mt-3"
+                className="btn btn-sm btn-outline btn-primary mt-3"
               >
                 Ver certificado
               </Link>

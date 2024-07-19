@@ -56,7 +56,7 @@ export async function GET() {
             fontSize: "1rem",
             margin: "0.5rem 0",
           }}
-        >{personalInfo.summary}</p>
+        >{personalInfo.bio}</p>
       </div>
     ),
     { width: 1200, height: 600 }

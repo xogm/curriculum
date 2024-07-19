@@ -1,6 +1,5 @@
 import { memo } from "react";
 import Image from "next/image";
-import ContactForm from "./ContactForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { personalInfo } from "@/data/personalInfo";
@@ -11,6 +10,7 @@ const Header = () => {
     lastName,
     nickname,
     title,
+    bio,
     backgroundUrl,
     avatarUrl,
     location: { city, state, country },
@@ -25,28 +25,28 @@ const Header = () => {
         }}
       >
         <div className="hero-overlay bg-opacity-60"></div>
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center text-neutral-content w-96">
+        <div className="hero-content">
+          <div className="max-w-md text-center text-neutral-content">
             <div className="avatar mb-6 max-md:mt-6">
-              <div className="w-24 rounded-full ring ring-neutral ring-offset-base-100 ring-offset-2">
+              <div className="rounded-full ring ring-neutral ring-offset-base-100 ring-offset-2">
                 <Image
                   src={avatarUrl}
                   alt={nickname}
                   width={200}
                   height={200}
                 />
-                </div>
+              </div>
             </div>
             <h1 className="text-5xl font-bold">
-              {firstName} <span className="italic text-secondary">{lastName}</span>
+              {firstName} <span className="italic">{lastName}</span>
             </h1>
-            <h2 className="mb-4 text-2xl text-secondary">{title}</h2>
-            <p className="text-sm sm:mb-2 italic text-neutral-content">
+            <p className="text-sm sm:mb-2 italic">
               {city}, {state} - {country}{" "}
               <FontAwesomeIcon icon={faLocationDot} size="sm" />
             </p>
+            <h2 className="mb-4 text-2xl">{title}</h2>
+            <p className="mb-4 text-sm">{bio}</p>
           </div>
-          <ContactForm />
         </div>
       </div>
     </header>
