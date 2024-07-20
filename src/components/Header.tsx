@@ -57,7 +57,7 @@ const Header = () => {
               </a>
               <a
                 href={
-                  contactInfo.social.find((s) => s.name === "linkedin")?.url
+                  contactInfo.social.find((s) => s.name === "LinkedIn")?.url
                 }
                 className="btn btn-secondary"
                 aria-label="Acesse meu LinkedIn"
