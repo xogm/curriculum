@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { personalInfo } from "@/data/personalInfo";
+import { contactInfo } from "@/data/contactInfo";
 
 const Header = () => {
   const {
@@ -46,6 +47,24 @@ const Header = () => {
             </p>
             <h2 className="mb-4 text-2xl">{title}</h2>
             <p className="mb-4 text-sm">{bio}</p>
+            <div className="flex justify-center space-x-4">
+              <a
+                href="#contact"
+                className="btn btn-primary"
+                aria-label="Entre em contato comigo"
+              >
+                Fale comigo
+              </a>
+              <a
+                href={
+                  contactInfo.social.find((s) => s.name === "linkedin")?.url
+                }
+                className="btn btn-secondary"
+                aria-label="Acesse meu LinkedIn"
+              >
+                LinkedIn
+              </a>
+            </div>
           </div>
         </div>
       </div>

@@ -32,7 +32,7 @@ const Footer = () => {
           ))}
         </div>
       </div>
-      <div className="w-md-2 hidden">
+      <div className="w-md-2">
         <h6 className="footer-title">Fale comigo</h6>
         <p className="footer-subtitle">
           Envie-me uma mensagem para conversarmos sobre seu projeto.

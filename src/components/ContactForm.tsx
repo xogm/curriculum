@@ -5,8 +5,8 @@ import { z } from "zod";
 import { ContactFormData } from "@/app/contact/types";
 import { useState, memo } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faMagic } from "@fortawesome/free-solid-svg-icons";
-import FloatLabelField from "./FloatLabelField";
+import { faEnvelope, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import FloatLabel from "./FloatLabel";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
@@ -18,12 +18,6 @@ const contactSchema = z.object({
 const ContactForm = () => {
   const methods = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    },
   });
   const {
     register,
@@ -34,6 +28,7 @@ const ContactForm = () => {
     success: boolean;
     message: string;
   } | null>(null);
+
   const onSubmit = async (data: ContactFormData) => {
     try {
       const response = await fetch("/contact", {
@@ -57,31 +52,19 @@ const ContactForm = () => {
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={handleSubmit(onSubmit)} className="w-full">
-        <FloatLabelField
-          label="Nome"
-          type="text"
-          {...register("name")}
-          id="name"
-        />
-        <FloatLabelField
-          label="Email"
-          type="email"
-          {...register("email")}
-          id="email"
-        />
-        <FloatLabelField
-          label="Assunto"
-          type="text"
-          {...register("subject")}
-          id="subject"
-        />
-        <FloatLabelField
-          label="Mensagem"
-          as="textarea"
-          {...register("message")}
-          id="message"
-        />
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full" id="contact">
+        <FloatLabel label="Nome" name="name">
+          <input {...register("name")} type="text" />
+        </FloatLabel>
+        <FloatLabel label="Email" name="email">
+          <input {...register("email")} type="email" />
+        </FloatLabel>
+        <FloatLabel label="Assunto" name="subject">
+          <input {...register("subject")} type="text" />
+        </FloatLabel>
+        <FloatLabel label="Mensagem" name="message">
+          <textarea {...register("message")} />
+        </FloatLabel>
         {formResult && (
           <div
             className={`alert ${
@@ -96,7 +79,7 @@ const ContactForm = () => {
           className="btn btn-primary btn-lg w-full mt-4"
           disabled={isSubmitting || isSubmitSuccessful}
         >
-          <FontAwesomeIcon icon={isSubmitting ? faMagic : faEnvelope} />
+          <FontAwesomeIcon icon={isSubmitting ? faPaperPlane : faEnvelope} />
           <span>{isSubmitting ? "Enviando..." : "Enviar"}</span>
         </button>
       </form>
