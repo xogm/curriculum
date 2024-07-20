@@ -14,10 +14,11 @@ export async function POST(request: NextRequest) {
 
   try {
     await mg.messages.create(process.env.MAILGUN_DOMAIN as string, {
-      from: `${data.name} <${data.email}>`,
+      from: `${data.name} (${data.email}) <no-reply@${process.env.MAILGUN_DOMAIN}>`,
       to: process.env.MY_EMAIL as string,
       subject: data.subject,
       text: data.message,
+      "h:Reply-To": data.email
     });
     return NextResponse.json({ message: "Email enviado com sucesso!" });
   } catch (error) {
