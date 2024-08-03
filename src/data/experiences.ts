@@ -15,9 +15,27 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     role: "Desenvolvedor Full-Stack",
+    company: "PliQ.io",
+    period: {
+      start: parseDate({ year: 2024, month: 8 }),
+    },
+    location: "Fortaleza, CE",
+    achievements: [],
+    technologies: [
+      "ASP.NET",
+      "Angular",
+      "C#",
+      "PostgreSQL",
+      "HTML",
+      "CSS",
+    ],
+  },
+  {
+    role: "Desenvolvedor Full-Stack",
     company: "Freelancer",
     period: {
       start: parseDate({ year: 2020, month: 7 }),
+      end: parseDate({ year: 2024, mounth: 7 })
     },
     location: "Hibrido (Fortaleza, CE)",
     achievements: [
