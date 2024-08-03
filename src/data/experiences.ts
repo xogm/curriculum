@@ -35,7 +35,7 @@ export const experiences: Experience[] = [
     company: "Freelancer",
     period: {
       start: parseDate({ year: 2020, month: 7 }),
-      end: parseDate({ year: 2024, mounth: 7 })
+      end: parseDate({ year: 2024, month: 7 })
     },
     location: "Hibrido (Fortaleza, CE)",
     achievements: [
