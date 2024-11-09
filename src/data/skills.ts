@@ -26,7 +26,7 @@ const skills: Skills = {
     { name: "JavaScript", level: SkillLevel.PROFESSIONAL },
     { name: "TypeScript", level: SkillLevel.PROFESSIONAL },
     { name: "Java", level: SkillLevel.BEGINNER },
-    { name: "C#", level: SkillLevel.BEGINNER },
+    { name: "C#", level: SkillLevel.INTERMEDIATE },
   ],
   databases: [
     { name: "MySQL", level: SkillLevel.PROFESSIONAL },
@@ -41,6 +41,7 @@ const skills: Skills = {
     { name: "React Native", level: SkillLevel.ADVANCED },
     { name: "Express", level: SkillLevel.PROFESSIONAL },
     { name: "Laravel", level: SkillLevel.PROFESSIONAL },
+    { name: "Angular", level: SkillLevel.BEGINNER },
   ],
   softSkills: [
     "Comunicação",
