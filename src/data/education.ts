@@ -18,7 +18,7 @@ export const education: Education[] = [
       start: parseDate({ year: 2024, month: 2 }),
       end: parseDate({ year: 2026, month: 7 }),
     },
-    observations: "Cursando 2º período (previsto para término em 2026)",
+    observations: "Cursando 3º período",
   },
   {
     institution: "Autodidata",
