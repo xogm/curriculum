@@ -15,19 +15,26 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     role: "Desenvolvedor Full-Stack",
-    company: "PliQ.io",
+    company: "PliQ Pesquisas",
     period: {
       start: parseDate({ year: 2024, month: 8 }),
     },
     location: "Fortaleza, CE",
-    achievements: [],
+    achievements: [
+      "Trabalha na manutenção e evolução de sistemas legados, utilizando C# e Angular.",
+      "Realiza melhorias em gráficos complexos (charts) e processos de componentização para maior reutilização de código.",
+      "Implementa integrações com APIs de terceiros, incluindo plataformas como Meta, Blip e Dialog360, para melhorar a comunicação e automação.",
+      "Contribui para a modernização da base de código e aplicação de boas práticas de desenvolvimento.",
+    ],
     technologies: [
-      "ASP.NET",
+      "ASP.NET Core",
       "Angular",
       "C#",
       "PostgreSQL",
       "HTML",
       "CSS",
+      "TypeScript",
+      "JavaScript",
     ],
   },
   {
@@ -35,24 +42,25 @@ export const experiences: Experience[] = [
     company: "Freelancer",
     period: {
       start: parseDate({ year: 2020, month: 7 }),
-      end: parseDate({ year: 2024, month: 7 })
+      end: parseDate({ year: 2024, month: 7 }),
     },
-    location: "Hibrido (Fortaleza, CE)",
+    location: "Híbrido (Fortaleza, CE)",
     achievements: [
       "Projetou e implementou sistemas e bancos de dados de alta complexidade, garantindo desempenho e escalabilidade.",
-      "Desenvolveu aplicativos móveis e web de ponta a ponta utilizando PHP, MySQL, React Native, JavaScript (Node.js) e MongoDB.",
+      "Desenvolveu aplicativos móveis e web de ponta a ponta utilizando PHP, MySQL, React Native, Node.js e MongoDB.",
       "Gerenciou projetos de forma autônoma, mantendo comunicação eficaz com clientes para entrega de soluções personalizadas.",
     ],
     technologies: [
       "PHP",
       "MySQL",
       "React Native",
-      "JavaScript",
+      "Node.js",
       "MongoDB",
-      "Hardware",
-      "Redes",
       "HTML",
       "CSS",
+      "JavaScript",
+      "Hardware",
+      "Redes",
     ],
   },
   {
@@ -95,10 +103,10 @@ export const experiences: Experience[] = [
       "PHP",
       "MariaDB",
       "AWS EC2",
-      "Hardware",
       "HTML",
       "CSS",
       "JavaScript",
+      "Hardware",
     ],
   },
   {
@@ -118,11 +126,11 @@ export const experiences: Experience[] = [
       "PHP",
       "MySQL",
       "React Native",
-      "Hardware",
-      "Redes",
       "HTML",
       "CSS",
       "JavaScript",
+      "Hardware",
+      "Redes",
     ],
   },
   {
@@ -132,7 +140,7 @@ export const experiences: Experience[] = [
       start: parseDate({ year: 2008, month: 12 }),
       end: parseDate({ year: 2019, month: 3 }),
     },
-    location: "Fortaleza, CE / São José do Rio Preto, SP / Hibrido",
+    location: "Fortaleza, CE / São José do Rio Preto, SP / Híbrido",
     achievements: [
       "Forneceu suporte técnico especializado para supermercados e lojas, resolvendo questões complexas de hardware e software.",
       "Desenvolveu aplicativos personalizados, ampliando a automação e eficiência dos processos dos clientes.",
@@ -161,6 +169,12 @@ export const experiences: Experience[] = [
       "Responsável pela manutenção dos pontos de venda e demais computadores, assegurando o bom funcionamento dos equipamentos.",
       "Gerenciou planilhas de pagamentos e funcionários, mantendo a organização e precisão das informações financeiras e administrativas.",
     ],
-    technologies: ["SysPDV", "Excel", "PostgreSQL", "Hardware", "Redes"],
+    technologies: [
+      "SysPDV",
+      "Excel",
+      "PostgreSQL",
+      "Hardware",
+      "Redes",
+    ],
   },
 ];
