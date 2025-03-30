@@ -16,23 +16,23 @@ export interface ContactInfo {
   social: Social[];
 }
 
-const whatsappNumber = "5585986883097";
+const whatsappNumber = "558599292118";
 const whatsappMessage = "Olá, Ronis! Vi seu site e gostaria de falar com você.";
 const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
   whatsappMessage
 )}`;
 
 export const contactInfo: ContactInfo = {
-  email: "ronis@ronis.com.br",
+  email: "ronis@xogum.com",
   social: [
     {
       name: "LinkedIn",
-      url: "https://www.linkedin.com/in/valdirronis/",
+      url: "https://www.linkedin.com/in/xogum/",
       icon: faLinkedin,
     },
     {
       name: "GitHub",
-      url: "https://github.com/x1db",
+      url: "https://github.com/xogm",
       icon: faGithub,
     },
     {
