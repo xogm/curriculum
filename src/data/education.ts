@@ -12,13 +12,12 @@ export interface Education {
 
 export const education: Education[] = [
   {
-    institution: "UNIASSELVI",
+    institution: "Estácio",
     degree: "Tecnólogo em Análise e Desenvolvimento de Sistemas",
     period: {
       start: parseDate({ year: 2024, month: 2 }),
       end: parseDate({ year: 2026, month: 7 }),
     },
-    observations: "Cursando 3º período",
   },
   {
     institution: "Autodidata",
