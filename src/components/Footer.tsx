@@ -1,11 +1,14 @@
 import { memo } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faMapMarkerAlt, faGlobe, faClock, faCode } from "@fortawesome/free-solid-svg-icons";
 import { contactInfo } from "@/data/contactInfo";
+import { personalInfo } from "@/data/personalInfo";
 import ContactForm from "./ContactForm";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+  
   return (
     <footer className="footer footer-center py-10 bg-base-200 text-base-content">
       <div className="container mx-auto px-4">
@@ -16,6 +19,22 @@ const Footer = () => {
             <p className="mb-6 opacity-80 max-w-md">
               Conecte-se comigo nas redes sociais ou envie um e-mail. Estou sempre aberto para novas oportunidades e colaborações!
             </p>
+
+            {/* Informações de localização e disponibilidade */}
+            <div className="mb-6 space-y-2 text-sm opacity-70">
+              <div className="flex items-center gap-2 justify-center md:justify-start">
+                <FontAwesomeIcon icon={faMapMarkerAlt} className="text-primary" />
+                <span>{personalInfo.location.city}, {personalInfo.location.state} - {personalInfo.location.country}</span>
+              </div>
+              <div className="flex items-center gap-2 justify-center md:justify-start">
+                <FontAwesomeIcon icon={faClock} className="text-primary" />
+                <span>Disponível para trabalho remoto e híbrido</span>
+              </div>
+              <div className="flex items-center gap-2 justify-center md:justify-start">
+                <FontAwesomeIcon icon={faGlobe} className="text-primary" />
+                <span>Timezone: GMT-3 (Brasília)</span>
+              </div>
+            </div>
             
             {/* Email e Redes Sociais */}
             <div className="space-y-3">
@@ -58,6 +77,18 @@ const Footer = () => {
               <ContactForm />
             </div>
           </div>
+        </div>
+
+        {/* Copyright e info adicional */}
+        <div className="divider max-w-6xl mx-auto mt-10"></div>
+        <div className="text-center space-y-2 opacity-60">
+          <p className="flex items-center justify-center gap-2 text-sm">
+            <FontAwesomeIcon icon={faCode} />
+            <span>Desenvolvido com Next.js, React, TypeScript & Tailwind CSS</span>
+          </p>
+          <p className="text-sm">
+            © {currentYear} {personalInfo.firstName} {personalInfo.lastName}. Todos os direitos reservados.
+          </p>
         </div>
       </div>
     </footer>

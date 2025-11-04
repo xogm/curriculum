@@ -26,7 +26,7 @@ interface ListSectionProps {
   color?: "primary" | "accent" | "neutral";
 }
 
-const ListSection = ({ title, sectionId, items, icon, color = "neutral" }: ListSectionProps) => {
+const ListSection = ({ title, sectionId, items, icon, color = "primary" }: ListSectionProps) => {
   return (
     <Section title={title} id={sectionId} color={color}>
       <AnimatePresence mode="popLayout">

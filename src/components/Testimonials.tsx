@@ -50,7 +50,7 @@ const TestimonialCard = ({
 const MemoTestimonialCard = memo(TestimonialCard);
 
 const Testimonials = () => (
-  <Section title="Depoimentos" id="depoimentos">
+  <Section title="Depoimentos" id="depoimentos" color="primary">
     {/* Container com scroll horizontal */}
     <div className="relative w-full overflow-hidden">
       <div className="flex gap-6 overflow-x-auto pb-4 items-stretch -mx-4 px-4 md:-mx-6 md:px-6">

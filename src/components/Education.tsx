@@ -19,7 +19,6 @@ const Education = () => {
       sectionId="educacao"
       items={items}
       icon={faGraduationCap}
-      color="primary"
     />
   );
 };

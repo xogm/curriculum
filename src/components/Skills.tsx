@@ -62,7 +62,7 @@ const SkillList = ({ title, skills, showLevel = true, delay = 0 }: SkillListProp
 );
 
 const Skills = () => (
-  <Section title="Skills">
+  <Section title="Skills" color="primary">
     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
       <SkillList title="Linguagens" skills={skills.languages} delay={0} />
       <SkillList title="Frameworks" skills={skills.frameworks} delay={0.1} />
