@@ -39,7 +39,7 @@ const Page = () => {
       />
       
       <Header />
-      <main className="container px-4 mx-auto">
+      <main className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         <Experience />
         <Skills />
         <Education />
