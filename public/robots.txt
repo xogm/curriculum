@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ronis.com.br/sitemap.xml
+
+# Disallow crawling of API routes
+Disallow: /api/
+Disallow: /contact/

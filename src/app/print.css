@@ -1,0 +1,260 @@
+/* Estilos para impressão do currículo */
+@media print {
+  /* Ocultar elementos desnecessários */
+  header .hero-overlay,
+  nav,
+  button,
+  .btn,
+  .theme-selector,
+  footer,
+  #contact form,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Ajustar layout para impressão */
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Remover backgrounds de hero */
+  .hero {
+    background: white !important;
+    min-height: auto !important;
+    padding: 2rem 0 !important;
+  }
+
+  .hero-content {
+    background: transparent !important;
+  }
+
+  /* Ajustar espaçamentos */
+  section {
+    page-break-inside: avoid;
+    margin-bottom: 1.5rem !important;
+  }
+
+  h1 {
+    font-size: 2rem !important;
+    page-break-after: avoid;
+  }
+
+  h2 {
+    font-size: 1.5rem !important;
+    page-break-after: avoid;
+    border-bottom: 2px solid #333 !important;
+    padding-bottom: 0.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  h3 {
+    font-size: 1.2rem !important;
+    page-break-after: avoid;
+  }
+
+  /* Forçar cores para impressão */
+  * {
+    color: black !important;
+    background: transparent !important;
+  }
+
+  /* Ajustar imagens */
+  img {
+    max-width: 150px !important;
+    height: auto !important;
+  }
+
+  .avatar {
+    margin: 0 auto 1rem !important;
+  }
+
+  /* Ajustar cards */
+  .card {
+    border: 1px solid #ddd !important;
+    padding: 1rem !important;
+    margin-bottom: 1rem !important;
+    box-shadow: none !important;
+  }
+
+  /* Links - mostrar URL */
+  a[href]:after {
+    content: "\A" attr(href);
+    font-size: 0.65em;
+    color: #666 !important;
+    word-break: break-all;
+    white-space: pre-wrap;
+    display: block;
+    margin-top: 0.15rem;
+    font-style: italic;
+  }
+
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after,
+  a[href^="mailto:"]:after {
+    content: "";
+  }
+
+  /* Botões viram texto simples - apenas no header */
+  .hero .btn {
+    display: inline-block !important;
+    padding: 0.25rem 0.5rem !important;
+    border: 1px solid #ddd !important;
+    background: transparent !important;
+    text-decoration: none !important;
+    color: #333 !important;
+    border-radius: 0.25rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  .hero .btn svg {
+    display: none !important;
+  }
+
+  /* Outros botões (certificados, projetos) - ocultar texto, mostrar apenas URL */
+  .btn:not(.hero .btn) {
+    display: inline !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    text-decoration: none !important;
+    border-radius: 0 !important;
+    color: transparent !important;
+    font-size: 0.001px !important;
+  }
+
+  .btn:not(.hero .btn) svg {
+    display: none !important;
+  }
+  
+  .btn:not(.hero .btn):after {
+    color: #666 !important;
+    font-size: 10.4px !important;
+  }
+
+  /* Container */
+  .container {
+    max-width: 100% !important;
+    padding: 0 1rem !important;
+  }
+
+  /* Evitar quebras de página inadequadas */
+  .timeline-item,
+  .card,
+  .skill-item {
+    page-break-inside: avoid;
+  }
+
+  /* Depoimentos - layout em grid para impressão */
+  #depoimentos > div,
+  #depoimentos .relative {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #depoimentos .flex.gap-6 {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+
+  #depoimentos .card {
+    width: 100% !important;
+    min-width: auto !important;
+    max-width: 100% !important;
+    flex-shrink: 1 !important;
+    height: auto !important;
+  }
+
+  #depoimentos .card-body {
+    padding: 0.75rem !important;
+    height: auto !important;
+  }
+
+  /* Ícone de aspas */
+  #depoimentos .card-body > div:first-child {
+    margin-bottom: 0.5rem !important;
+  }
+
+  /* Citação */
+  #depoimentos .card-body > p {
+    flex: 0 !important;
+    margin: 0.5rem 0 !important;
+    font-size: 0.875rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Container do autor (avatar + nome) */
+  #depoimentos .card-body > div:last-child {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding-top: 0.5rem !important;
+    margin-top: 0.5rem !important;
+    border-top: 1px solid #ddd !important;
+    min-height: 40px !important;
+  }
+
+  /* Avatar */
+  #depoimentos .avatar,
+  #depoimentos .avatar.placeholder,
+  #depoimentos .avatar > div {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  #depoimentos .avatar span {
+    font-size: 0.75rem !important;
+    line-height: 1 !important;
+  }
+
+  /* Info do autor */
+  #depoimentos .card-body > div:last-child > div:last-child {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-self: center !important;
+  }
+
+  #depoimentos .card-body > div:last-child > div:last-child > div {
+    line-height: 1.3 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #depoimentos .card-body > div:last-child > div:last-child > div:first-child {
+    margin-bottom: 0.125rem !important;
+  }
+
+  /* Remover animações */
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Classe utilitária para ocultar na impressão */
+.print-hidden {
+  @media print {
+    display: none !important;
+  }
+}
+
+/* Classe utilitária para mostrar apenas na impressão */
+.print-only {
+  display: none;
+
+  @media print {
+    display: block !important;
+  }
+}
